@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "ShowAllUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using STC_online.Models
+
+<table class="table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+   
+    <th>User ID &nbsp;&nbsp;</th>
+    <th>Name&nbsp;&nbsp;</th>
+    <th>Department&nbsp;&nbsp;</th>
+    <th>CNIC &nbsp;&nbsp;</th>
+    <th>Contect &nbsp;&nbsp;</th>
+    <th>City &nbsp;&nbsp;</th>
+    <th>Date of Birth &nbsp;&nbsp;</th>
+    <th>Year of Admission &nbsp;&nbsp;</th>
+
+    @foreach (SignUp a in Model)
+    {
+        <tr>
+            
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.name
+            </td>
+
+            <td>
+                @a.department
+            </td>
+            <td>
+                @a.contact
+            </td>
+            <td>
+                @a.city
+            </td>
+            <td>
+                @a.year
+            </td>
+            <td>@a.cnic</td>
+            <td>
+                @a.dob
+            </td>
+            <td>
+                <form method="post" action="@Url.Action("DeleteUser","Admin")">
+                    <input type="hidden" name="cnic" value="@a.cnic" id="cnic" />
+                    <input type="submit" class="btn btn-danger" name="submit" value="Delete User" />
+                </form>
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+<br /><br /><br />

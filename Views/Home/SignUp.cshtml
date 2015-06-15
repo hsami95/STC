@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "SignUpHostel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model STC_online.Models.SignUp
+
+<div class="row">
+   
+
+    <div class="col-md-7">
+        <br /><br /><br />
+        <img src="~/contents/image/hostelSingUp.jpg" class="img-responsive ">
+    
+    </div>
+    
+    @using (Html.BeginForm("Add", "Home", FormMethod.Post, new {  @class="form col-md-5 pull-right" }))
+    {
+        
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")*@
+        
+        @Html.TextBoxFor(model => model.name, new { placeholder = "Name", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.name)
+        
+        @Html.TextBoxFor(model => model.department, new { placeholder = "department", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.department)
+        
+        <div id="d1" style="color: red">
+
+
+        </div>
+        
+        @Html.TextBoxFor(model => model.cnic, new { placeholder = "CNIC", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.cnic)
+        
+         @Html.TextBoxFor(model => model.contact, new { placeholder = "Contact No", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.contact)
+        
+           @Html.TextBoxFor(model => model.city, new { placeholder = "City", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.city)
+        
+        
+        @Html.TextBoxFor(model => model.year, new { placeholder = "Year of Admission", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.year)
+        
+        @Html.TextBoxFor(model => model.dob, new { placeholder = "DOB", Type= "date", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.dob)
+        
+        @Html.TextBoxFor(model => model.password, new { placeholder = "Password",type= "password", @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.password)
+        
+        @Html.TextBoxFor(model => model.password1, new { placeholder = "Confirm Password", type= "password" , @class = "form-control" })<br>
+        @Html.ValidationMessageFor(model => model.password1)
+        
+      
+        <input type="submit" style="background-color: lightblue;font-family: cursive; color: #337ab7" value="Sign-Up" name="submit" class="btn btn-lg btn-block pull-right" />
+        
+        
+
+    }
+   @*<form style="color:#000;" method="post" action="@Url.Action("Add","Home")" class="form col-md-5 pull-right"  >
+
+        <font color="415c81" style="font-family: cursive" size="5">  Sign Up</font>
+        <br><br/>
+        <input required class="form-control" type="text" name="name" id="name" placeholder=" Name" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="department" id="department" placeholder=" Department" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <div id="d1" style="color: red">
+
+
+        </div>
+         <input required class="form-control"  type="text" name="cnic" id="cnic" class="nameTextField" placeholder=" CNIC" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="contact" id="contact" class="nameTextField" placeholder=" Contact" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="city" id="city" class="nameTextField" placeholder=" City" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="year" id="Year" class="nameTextField" placeholder=" Year of Admission" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="date" name="DOB" id="DOB" class="nameTextField" placeholder=" DOB" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="password" name="password" id="password" class="nameTextField" placeholder=" Password" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="password" name="password1" id="password1" class="nameTextField" placeholder="Confirm Password" style=" opacity: 0.6"></input ><br>
+
+        <input type="submit" style="background-color: lightblue;font-family: cursive; color: #337ab7" value="Sign-Up" name="submit" class="btn btn-lg btn-block pull-right"></input >
+    </form>*@
+        }
+</div>
+<br /><br />
+<script>
+
+    $('#cnic').change(function () {
+        var value = $('#cnic').val();
+        $('#d1').load('/home/checkAvailability?cnic=' + value);
+        //var input = document.getElementById('cnic');
+        //    input.value = "";
+    });
+
+</script>

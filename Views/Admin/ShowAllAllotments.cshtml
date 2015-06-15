@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "ShowAllAllotments";
+}
+
+@using STC_online.Models
+
+<table>
+    <th></th>
+    
+    @foreach (SignUp a in Model)
+    {
+        <tr>
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.name
+            </td>
+            
+            <td>
+                @a.department
+            </td>
+            <td>
+                @a.contact
+            </td>
+            <td>
+                @a.city
+            </td>
+            <td>
+                @a.year
+            </td>
+            <td>@a.cnic</td>
+            <td>
+                @a.dob
+            </td>
+            <td></td>
+        </tr>
+    }
+
+    
+
+</table>

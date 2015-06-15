@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "ShowAllHosteliteStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using STC_online.Models
+
+
+
+
+
+@foreach (HostelDue a in Model)
+{
+    @*<th>User ID</th>
+        <th>Name</th>
+        <th>Room No.</th>
+        <th>Department</th>
+        <th>Contect </th>
+        <th>City</th>
+        <th>Year of Admission</th>
+        <th>Image</th>
+        <th>CNIC </th>
+        <th>Degree </th>
+
+        if (a == null)
+        {
+            return;
+        }
+        <tr>
+
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.name
+            </td>
+            <td>
+                @a.roomNo
+            </td>
+            <td>
+                @a.department
+            </td>
+            <td>
+                @a.contact
+            </td>
+            <td>
+                @a.city
+            </td>
+            <td>
+                @a.year
+            </td>
+
+            <td>
+                @a.image
+            </td>
+            <td>
+                @a.CNIC
+            </td>
+            <td>
+                @a.degree
+            </td>
+
+        </tr>*@
+
+    <fieldset>
+        <legend><font color="#415c81" size="4">@a.name</font></legend>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-thumbnail" style="width: auto; height: auto" src="~/files/@a.image" />
+            </div>
+            <div class="col-md-3">
+                
+                <ul style="text-decoration: none; ">
+                    <li>User ID:</li>
+                    <li>Room No.</li>
+                    <li>Depatment</li>
+                    <li>Contact</li>
+                    <li>City</li>
+                    <li>Year of Admission</li>
+                    <li>CNIC</li>
+                    <li>Degree</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul style="text-decoration: none;">
+                    <li>@a.Id</li>
+                    <li>@a.roomNo</li>
+                    <li>@a.department</li>
+                    <li>@a.contact</li>
+                    <li>@a.city</li>
+                    <li>@a.year</li>
+                    <li>@a.CNIC</li>
+                    <li>@a.degree</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </fieldset>
+    <br/>
+    <div class="row">
+        <table class=" col-md-10 table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+            <tr>
+                <td><h3>Dues</h3></td>
+                <td><h3>Ammount</h3></td>
+                <td><h3>Last Date</h3></td>
+            </tr>
+            <tr>
+                <td><h4>Annual Dues</h4></td>
+                <td>@a.AnnualDues</td>
+                <td>@a.AnnualDueDate</td>
+
+
+
+            </tr>
+            <tr>
+                <td><h4>Mess Dues</h4></td>
+                <td>@a.MessDues</td>
+                <td>@a.MessDueDate</td>
+            </tr>
+            <tr>
+                <td><h4>Water Coller Dues</h4></td>
+                <td>@a.WaterCollerBill</td>
+                <td>@a.WaterCollerDueDate</td>
+                <tr>
+                    <td><h4>A/C Bill</h4></td>
+                    <td>@a.ACBill</td>
+                    <td>@a.ACBillDueDate</td>
+                </tr>
+                <tr>
+                    <td><h4>Canteen Bill</h4></td>
+                    <td>@a.canteenBill</td>
+                    <td>@a.canteenBillDueDate</td>
+                </tr>
+                <tr>
+                    <td><h4>Laundary Dues</h4></td>
+                    <td>@a.laundaryBill</td>
+                    <td>@a.laundaryBillDueDate</td>
+                    <td>
+                        <form method="post" action="@Url.Action("EditHosteliteRecords", "Admin")">
+                            <input type="hidden" name="cnic" value="@a.CNIC" id="cnic" />
+                            <input type="submit" class="btn btn-default" name="submit" value="Edit Record" />
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="@Url.Action("DeleteHostelApplication", "Admin")">
+                            <input type="hidden" name="CNIC" value="@a.CNIC" id="cnic" />
+                            <input type="submit" class="btn btn-danger" name="submit" value="Delete" />
+                        </form>
+                    </td>
+                </tr>
+
+
+            </tr>
+
+
+
+
+
+
+
+
+
+
+        </table>
+    </div>
+    
+    <br/>    
+    <br/>    
+    <br/>    
+}
+
+
+
+
+<form method="post" action="@Url.Action("DeleteHostelApplication","Admin")">
+    <input type="hidden" name="cnic" value="" id="cnic" />
+    <input type="submit" class="btn btn-danger" name="submit" value="Delete " />
+</form>
+
+
+

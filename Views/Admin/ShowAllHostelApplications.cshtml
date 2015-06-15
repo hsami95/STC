@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "ShowAllHostelApplications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@using STC_online.Models
+
+<table class="table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+
+    <th>User ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Contect </th>
+    <th>City</th>
+    <th>Year of Admission</th>
+    <th>Image</th>
+    <th>CNIC </th>    
+    <th>Degree </th>
+    <th>Application Status </th>
+   
+
+    @foreach (HostelApplication a in Model)
+    {
+        if (a == null)
+         {
+            return;
+         }
+        <tr>
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.name
+            </td>
+
+            <td>
+                @a.department
+            </td>
+            <td>
+                @a.contact
+            </td>
+            <td>
+                @a.city
+            </td>
+            <td>
+                @a.year
+            </td>
+            
+            <td>
+                @a.image
+            </td>
+            <td>
+                @a.cnic
+            </td>
+            <td>
+                @a.degree
+            </td>
+        <td>@a.applicationStatus</td>
+            <td>
+                <form method="post" action="@Url.Action("DeleteHostelApplication","Admin")">
+                    <input type="hidden" name="cnic" value="@a.cnic" id="cnic"  />
+                    <input type="submit" class="btn btn-danger" name="submit" value="Delete " />
+                </form>
+            </td>
+        <td>
+            <form method="post" action="@Url.Action("AcceptHostelApplication","Admin")">
+                <input type="hidden" name="cnic" value="@a.cnic" id="cnic" />
+                <input type="submit" name="submit" class="btn btn-success" value="Accept " />
+            </form>
+            </td>
+            <td>
+                <form method="post" action="@Url.Action("RejectHostelApplication","Admin")">
+                    <input type="hidden" name="cnic" value="@a.cnic" id="cnic" />
+                    <input type="submit" name="submit" class="btn btn-warning" value="Reject " />
+                </form>
+            </td>
+        </tr>
+        
+    }
+
+ 
+
+</table>
+<br /><br /><br />
+
+

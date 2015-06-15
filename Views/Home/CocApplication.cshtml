@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "CocApplication";
+}
+
+<div class="row">
+
+
+    <div class="col-md-7">
+        <br /><br /><br />
+        <img src="~/contents/image/hostelSingUp.jpg" class="img-responsive ">
+        <br />
+    </div>
+
+
+    <form style="color:#000;" method="post" action="@Url.Action("CocApplicationSave", "Home")" class="form col-md-5 pull-right">
+
+        <font color="415c81" style="font-family: cursive" size="5"> Co-Curriculer Application</font>
+        <br><br />
+        <input required class="form-control" type="text" name="name" id="name" placeholder=" Name" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="department" id="department" placeholder=" Department" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="Degree" id="Degree" placeholder=" Degree" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="Contact" id="Contact" placeholder=" Contact" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="city" id="city" class="nameTextField" placeholder=" City" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="year" id="Year" class="nameTextField" placeholder=" Year of Admission" style=" opacity: 0.6"></input ><br>
+       
+        <select required class="form-control" type="text" name="category" id="category" class="nameTextField" placeholder=" category" style=" opacity: 0.6">
+            <option>Select Category</option>
+            <option>Declamation Debates</option>
+            <option>Parlimentory Debates</option>
+            <option>Daramatics</option>
+            <option>Qirat</option>
+            <option>Naat</option>
+            <option>Fine Arts</option>
+            <option>Essay Writting</option>
+            <option>Quiz</option>
+            <option>Singing</option>
+            <option>Others</option>
+        </select>
+        <br/>
+        <textarea class="form-control"  name="category" id="category" style="height: 75px" class="nameTextField" placeholder=" Past Experience & Achivements"></textarea>
+        <input type="hidden" name="cnic" value="@ViewBag.cnic" id="cnic" class="nameTextField"></input >
+        <br />
+        <input type="submit" style="background-color: lightblue;font-family: cursive; color: #337ab7" value="Submit" name="submit" class="btn btn-lg btn-block pull-right"></input >
+        <br />
+    </form>
+    <br />
+</div>
+<br />

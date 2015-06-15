@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "ShowHosteliteProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+@*<table class="col-md-9 table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Room No</th>
+        <th>Department</th>
+        <th>Contect </th>
+        <th>City</th>
+        <th>Year of Admission</th>
+        <th>Image</th>
+        <th>CNIC </th>
+        <th>Degree </th>
+
+
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+               
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+
+            <td>
+                @ViewBag.showHostelite.image
+            </td>
+            <td>
+                
+            </td>
+            <td>
+               
+            </td>
+
+        </tr>
+    </table>
+</div>
+<br/>
+<br/>
+<br/>*@
+    <fieldset>
+        <legend><font color="#415c81" size="4">@ViewBag.showHostelite.name</font></legend>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-thumbnail" style="width: auto; height: auto" src="~/files/@ViewBag.showHostelite.image" />
+            </div>
+            <div class="col-md-2">
+                <br>
+                <br>
+                <br><ul style="text-decoration: none; list-style: none">
+                        <li>User ID:</li>
+                        <li>Room No.</li>
+                        <li>Depatment</li>
+                        <li>Contact</li>
+                        <li>City</li>
+                        <li>Year of Admission</li>
+                        <li>CNIC</li>
+                        <li>Degree</li>
+                    </ul>
+            </div>
+            <div class="col-md-3">
+                <br>
+                <br>
+                <br><ul style="text-decoration: none;">
+                        <li>@ViewBag.showHostelite.Id</li>
+                        <li>@ViewBag.showHostelite.roomNo</li>
+                        <li>@ViewBag.showHostelite.department</li>
+                        <li>@ViewBag.showHostelite.contact</li>
+                        <li>@ViewBag.showHostelite.city</li>
+                        <li>@ViewBag.showHostelite.year</li>
+                        <li>@ViewBag.showHostelite.CNIC</li>
+                        <li>@ViewBag.showHostelite.degree</li>
+                    </ul>
+            </div>
+        </div>
+
+
+    </fieldset>
+    <br><br>
+   
+  
+    </div>
+<div class="row">
+    <table class="col-md-9 table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+        <tr>
+            <td><h3>Dues</h3></td>
+            <td><h3>Ammount</h3></td>
+            <td><h3>Last Date</h3></td>
+        </tr>
+        <tr>
+            <td><h4>Annual Dues</h4></td>
+            <td>@ViewBag.showHostelite.AnnualDues</td>
+            <td>@ViewBag.showHostelite.AnnualDueDate</td>
+        </tr>
+        <tr>
+            <td><h4>Mess Dues</h4></td>
+            <td>@ViewBag.showHostelite.MessDues</td>
+            <td>@ViewBag.showHostelite.MessDueDate</td>
+        </tr>
+        <tr>
+            <td><h4>Water Coller Dues</h4></td>
+            <td>@ViewBag.showHostelite.WaterCollerBill</td>
+            <td>@ViewBag.showHostelite.WaterCollerDueDate</td>
+        <tr>
+            <td><h4>A/C Bill</h4></td>
+            <td>@ViewBag.showHostelite.ACBill</td>
+            <td>@ViewBag.showHostelite.ACBillDueDate</td>
+        </tr>
+        <tr>
+            <td><h4>Canteen Bill</h4></td>
+            <td>@ViewBag.showHostelite.canteenBill</td>
+            <td>@ViewBag.showHostelite.canteenBillDueDate</td>
+        </tr>
+        <tr>
+            <td><h4>Laundary Dues</h4></td>
+            <td>@ViewBag.showHostelite.laundaryBill</td>
+            <td>@ViewBag.showHostelite.laundaryBillDueDate</td>
+        </tr>
+
+        </tr>
+        <tr><td></td></tr>
+    </table>
+</div>

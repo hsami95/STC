@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "EditHosteliteProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using STC_online.Models;
+
+<form style="color:#000;" method="post" action="@Url.Action("SaveHostelite", "Home")" class="form col-md-5 pull-right">
+
+    <font color="415c81" style="font-family: cursive" size="5">  Hostelite Record</font>
+    <br><br />
+    <label>Name</label>
+    <input required class="form-control" type="text" name="name" value="@ViewBag.EditHoteliteAdminProfile.name"></input ><br>
+    <label>Room No</label>
+    <input required class="form-control" type="hidden" name="roomNo" value="@ViewBag.EditHoteliteAdminProfile.roomNo"></input ><br>
+
+    <label>Department</label>
+    <input required class="form-control" value="@ViewBag.EditHoteliteAdminProfile.department" type="text" name="department" id="department" class="nameTextField" style=" opacity: 0.6"></input ><br>
+    <label>Contect</label>
+    <input required class="form-control" value="@ViewBag.EditHoteliteAdminProfile.contact" type="text" name="contact" id="contact"></input ><br>
+    <label>City</label>
+    <input required class="form-control" value="@ViewBag.EditHoteliteAdminProfile.city" type="text" name="city" id="city"></input ><br>
+    <label>Year</label>
+    <input required class="form-control" value="@ViewBag.EditHoteliteAdminProfile.year" type="text" name="year" id="year"></input ><br>
+ 
+    <input class="form-control" value="@ViewBag.EditHoteliteAdminProfile.image" type="hidden" name="image"></input ><br>
+    <input class="form-control" value="@ViewBag.EditHoteliteAdminProfile.Id" type="hidden" name="Id"></input >
+    <label>CNIC</label>
+    <input class="form-control" value="@ViewBag.EditHoteliteAdminProfile.CNIC" type="text" name="CNIC"></input ><br>
+    <label>Degree</label>
+    <input required class="form-control" value="@ViewBag.EditHoteliteAdminProfile.degree" type="text" name="degree"></input ><br>
+    
+    <input type="submit" style="background-color: lightblue;font-family: cursive; color: #337ab7" value="Save" name="submit" class="btn btn-lg btn-block pull-right"></input >
+</form>
+
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br /><br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+

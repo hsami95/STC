@@ -1,0 +1,282 @@
+﻿@using System.Activities.Statements
+@using System.Diagnostics.Eventing.Reader
+@using STC_online.Controllers
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="~/engine1/style.css" media="screen" />
+        <style type="text/css">
+            a#vlb {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript" src="/engine1/jquery.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>STC online</title>
+        <link href="~/contents/bootstrap.css" rel="stylesheet" />
+
+    
+
+
+
+
+    </head>
+<body style="background-color: #F8FCFF;font-family: cursive;">
+    
+    <div style="width: 80%; height: auto; margin: auto; ">
+        <div class="row">
+            @if (Session["userID"] != null)
+            {
+                <nav style="background-color: lightblue; " class="navbar navbar-default navbar-custom active">
+                    <div class="container-fluid">
+                        <div class="navbar-header page-scroll">
+
+                            <a class="navbar-brand" style="font-family: cursive; font-size: 30px;" href="~/Home/Index">STC Online</a>
+                        </div>
+                        <div class="collapse navbar-collapse" style="font-family: cursive; font-size: 20px;" id="bs-example-navbar-collapse-1">
+                            <ul class="nav nav-tabs navbar-right pull-right" style="text-decoration:none; list-style: none">
+                                
+                              
+                               
+                                <li><a href="~/Home/Index" class="active">Home</a></li>
+
+
+
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Hostel Allotment <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        
+                                        @*@if (ViewBag.isAppExistH == null)
+                                        {
+                                           <li>
+                                               <a href="~/Home/HostelApplication">Application</a>
+                                           </li>
+                                        }else*@
+                                        @if ((string)Session["isAppExistH"] == "true" )
+                                        {
+                                            <li>
+                                                <a href="~/Home/CheckStatusHostel">Check Application Status</a>
+                                            </li>
+                                            if ((string)Session["HAppAccepted"] == "Accepted")
+                                             {
+                                                 <li>
+                                                     <a href="~/Home/ShowHosteliteProfile">Your Profile</a>
+                                                 </li>
+                                                 <li>
+                                                     <a href="~/Home/EditHosteliteProfile">Edit Profile</a>
+                                                 </li>
+                                             }
+
+                                        }
+                                        else
+                                        {
+                                        
+                                            <li>
+                                                <a href="~/Home/HostelApplication">Application</a>
+                                            </li>
+                                            
+                                            
+
+                                        }
+                                        
+
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="~/Home/RulesAndReg">Rules & Regulations</a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Co-curriculer <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        @*@if (ViewBag.isAppExistC == null)
+                                       {
+                                            <li>
+                                                <a href="~/Home/CocApplication">Application</a>
+                                            </li>
+                                       }
+                                       else*@
+                                        @if ((string)Session["isAppExistC"] == "true")
+                                        {
+                                            <li>
+                                                <a href="~/Home/CheckStatusCoc">Check Application Status</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a href="~/Home/CocApplication">Application</a>
+                                            </li>
+
+
+                                        }
+
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">Rules & Regulations</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Annual Report</a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                                
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">@Session["userID"]<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="~/Home/showSignUpProfile">Your Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="~/Home/EditSignUp">Edit Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="~/Home/SignOut">Sign Out</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                       
+
+
+
+                                    </ul>
+                                </li>
+                                
+                                
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="~/Home/IntroOfStc">Introduction</a>
+                                        </li>
+                                        <li>
+                                            <a href="~/Home/MsgOfVc">Message of VC</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="~/Home/hierarchy">Hierarchy of DSA</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Annual Report</a>
+                                        </li>
+
+
+
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+            }
+            else
+            {
+            <nav style="background-color: lightblue; " class="navbar navbar-default navbar-custom active">
+                <div class="container-fluid">
+                    <div class="navbar-header page-scroll">
+
+                        <a class="navbar-brand" style="font-family: cursive; font-size: 30px;" href="~/Home/Index">STC Online</a>
+                    </div>
+                    <div class="collapse navbar-collapse" style="font-family: cursive; font-size: 20px;" id="bs-example-navbar-collapse-1">
+                        <ul class="nav nav-tabs navbar-right pull-right" style="text-decoration:none; list-style: none">
+
+
+                            <li><a href="~/Home/Index" class="active">Home</a></li>
+
+
+
+
+
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Hostel Allotment <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="~/Home/SignIn">Sign In</a>
+                                    </li>
+
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="~/Home/RulesAndReg">Rules & Regulations</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Co-curriculer <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="~/Home/SignIn">Sign In</a>
+                                    </li>
+
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">Rules & Regulations</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Annual Report</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="~/Home/SignIn">Sign In</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">About<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="~/Home/IntroOfStc">Introduction</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Home/MsgOfVc">Message of VC</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="~/Home/hierarchy">Hierarchy of DSA</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Annual Report</a>
+                                    </li>
+                                    
+
+
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            }
+           
+        </div>
+        @RenderBody()
+    </div>
+
+
+
+    <footer style="background-color: lightblue">
+        <span>
+            <p style="margin: auto; color: gray; text-align: center "> Email: dsa@pu.edu.pk</p>
+            <p style="margin: auto; color: gray; text-align: center "> Contect# 04299232383</p>
+            <p style="margin: auto; color: gray; text-align: center "> University of the Punjab (New Campus)</p>
+            <p style="margin: auto; color: gray; text-align: center "> Canal Bank Rd,</p>
+            <p style="margin: auto; color: gray; text-align: center ">  Lahore</p>
+
+        </span>
+    </footer>
+
+    <script src="~/contents/jquery-2.1.1.js"></script>
+    <script src="~/contents/bootstrap.js"></script>
+
+</body>
+</html>

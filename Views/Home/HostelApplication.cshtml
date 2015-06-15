@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "HostelApplication";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+
+    <div class="col-md-6">
+        <br /><br /><br />
+        <img src="~/contents/image/hostelSingUp.jpg" class="img-responsive ">
+
+    </div>
+
+
+    <form style="color:#000;" enctype="multipart/form-data" method="post" action="@Url.Action("HostelApplicationSave", "Home")" class="form col-md-5 pull-right">
+
+        <font color="415c81" style="font-family: cursive" size="5">  Hostel Application</font>
+        <br><br />
+        <input required class="form-control" type="text" name="name" id="name" placeholder=" Name" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="department" id="department" placeholder=" Department" class="nameTextField" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="contact" id="contact" class="nameTextField" placeholder=" Contact" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="city" id="city" class="nameTextField" placeholder=" City" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="year" id="Year" class="nameTextField" placeholder=" Year of Admission" style=" opacity: 0.6"></input ><br>
+        <input required class="form-control" type="text" name="Degree" id="Degree" class="nameTextField" placeholder=" Degree" style=" opacity: 0.6"></input ><br>
+        <label> Upload Image</label>
+        <input required type="file" name="image" placeholder="Upload Image" value="Upload Image" class="form-control" />
+        <br />
+        <input type="hidden" name="cnic" value="@ViewBag.cnic" id="cnic" class="nameTextField"></input >
+        <input type="submit" style="background-color: lightblue;font-family: cursive; color: #337ab7" value="Submit" name="submit" class="btn btn-lg btn-block pull-right"></input >
+    </form>
+
+</div>
+
+<br/>
+<br/>
+<br/>

@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "ShowAllCocApplications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+@using STC_online.Models
+
+<table class="table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+
+    <th>User ID &nbsp;&nbsp;</th>
+    <th>Name&nbsp;&nbsp;</th>
+    <th>Department&nbsp;&nbsp;</th>
+    <th>CNIC &nbsp;&nbsp;</th>
+    <th>Contect &nbsp;&nbsp;</th>
+    <th>City &nbsp;&nbsp;</th>
+    <th>Year &nbsp;&nbsp;</th>
+    <th>Category &nbsp;&nbsp;</th>
+    <th>Application Status &nbsp;&nbsp;</th>
+
+    @foreach (CocApplication a in Model)
+    {
+        <tr>
+            <td>
+                @a.Id
+            </td>
+            <td>
+                @a.name
+            </td>
+
+            <td>
+                @a.department
+            </td>
+            <td>
+                @a.cnic
+            </td>
+            <td>
+                @a.contact
+            </td>
+            <td>
+                @a.city
+            </td>
+            <td>
+                @a.year
+            </td>
+
+            <td>
+                @a.category
+            </td>
+            <td>
+                @a.applicationStatus
+            </td>
+            <td>
+                <form method="post" action="@Url.Action("DeleteCocApplication","Admin")">
+                    <input type="hidden" name="cnic" value="@a.cnic" id="cnic" />
+                    <input type="submit" class="btn btn-danger" name="submit" value="Delete " />
+                </form>
+            </td>
+            <td>
+                <form method="post" action="@Url.Action("AcceptCocApplication","Admin")">
+                    <input type="hidden" name="cnic" value="@a.cnic" id="cnic" />
+                    <input type="submit" name="submit" class="btn btn-success" value="Accept " />
+                </form>
+            </td>
+            <td>
+                <form method="post" action="@Url.Action("RejectCocApplication","Admin")">
+                    <input type="hidden" name="cnic" value="@a.cnic" id="cnic" />
+                    <input type="submit" name="submit" class="btn btn-warning" value="Reject " />
+                </form>
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+<br /><br /><br />
+

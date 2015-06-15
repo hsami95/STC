@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "showSignUpProfile";
+}
+
+@{
+    ViewBag.Title = "ShowHosteliteProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    @*<table class="col-md-9 table-bordered table-responsive table-hover text-capitalize table-striped table-condensed">
+
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Room No</th>
+                <th>Department</th>
+                <th>Contect </th>
+                <th>City</th>
+                <th>Year of Admission</th>
+                <th>Image</th>
+                <th>CNIC </th>
+                <th>Degree </th>
+
+
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+
+                    <td>
+                        @ViewBag.showHostelite.image
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <br/>
+        <br/>*@
+    <fieldset>
+        <legend><font color="#415c81" size="4">@ViewBag.showSignUp.name </font></legend>
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                <br>
+                <br>
+                <br><ul style="text-decoration: none; ">
+                    <li>User ID:</li>
+                    <li>Depatment:</li>
+                    <li>Contact:</li>
+                    <li>City:</li>
+                    <li>Year of Admission:</li>
+                    <li>Date of Birth:</li>
+                    <li>CNIC:</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <br>
+                <br>
+                <br><ul style="text-decoration: none;list-style: none">
+                    <li>@ViewBag.showSignUp.Id</li>
+                    <li>@ViewBag.showSignUp.department</li>
+                    <li>@ViewBag.showSignUp.contact</li>
+                    <li>@ViewBag.showSignUp.city</li>
+                    <li>@ViewBag.showSignUp.year</li>
+                    <li>@ViewBag.showSignUp.dob</li>
+                    <li>@ViewBag.showSignUp.cnic</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </fieldset>
+    <br><br>
+
+
+</div>
+
+

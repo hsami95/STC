@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "EditSignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using STC_online.Models
+
+<form style="color:#000;" method="post" action="@Url.Action("SaveSignUp", "Home")" class="form col-md-5 pull-right">
+
+    <font color="415c81" style="font-family: cursive" size="5">  Sign Up</font>
+    <br><br />
+    <label>Name</label>
+    <input required class="form-control" type="text" name="name" value="@ViewBag.EditSignUp.name"></input ><br>
+    <input required class="form-control" type="hidden" name="Id" value="@ViewBag.EditSignUp.Id"></input ><br>
+ 
+
+    <label>Department</label>
+    <input required class="form-control" value="@ViewBag.EditSignUp.department" type="text" name="department" id="department" class="nameTextField" style=" opacity: 0.6"></input ><br>
+    <label>Contect</label>
+    <input required class="form-control" value="@ViewBag.EditSignUp.contact" type="text" name="contact" id="contact"></input ><br>
+    <label>City</label>
+    <input required class="form-control" value="@ViewBag.EditSignUp.city" type="text" name="city" id="city"></input ><br>
+    <label>Year</label>
+    <input required class="form-control" value="@ViewBag.EditSignUp.year" type="text" name="year" id="year"></input ><br>
+    <label>Date of Birth</label>
+    <input class="form-control" value="@ViewBag.EditSignUp.dob" type="date" name="dob"></input ><br>
+    <label>CNIC</label>
+    <input class="form-control" value="@ViewBag.EditSignUp.cnic" type="text" name="cnic"></input ><br>
+    <label>Password</label>
+    <input required class="form-control" value="@ViewBag.EditSignUp.password" type="text" name="password"></input ><br>
+     <label>Confirm Password</label>
+    <input required class="form-control" value="@ViewBag.EditSignUp.password1" type="text" name="password1"></input ><br>
+
+    <input type="submit" style="background-color: lightblue;font-family: cursive; color: #337ab7" value="Save" name="submit" class="btn btn-lg btn-block pull-right"></input >
+</form>
+
+<div style="height: 900px"></div>
